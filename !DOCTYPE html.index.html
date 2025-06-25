@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年浙江省普通高校招生考试成绩查询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a5fb4, #0d47a1);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .user-info {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .main-content {
+            padding: 30px 0;
+        }
+        .query-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .card-title {
+            font-size: 20px;
+            color: #1a5fb4;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        .card-title i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+        .form-col {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        input:focus, select:focus {
+            border-color: #1a5fb4;
+            outline: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #1a5fb4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #0d47a1;
+        }
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        .result-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-top: 30px;
+            position: relative;
+        }
+        .result-title {
+            text-align: center;
+            font-size: 22px;
+            color: #1a5fb4;
+            margin-bottom: 25px;
+        }
+        .score-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        .score-table th, .score-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        .score-table th {
+            background-color: #f5f7fa;
+            font-weight: 500;
+        }
+        .score-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .student-name-display {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .notice {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .notice-title {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #ff8f00;
+        }
+        .footer {
+            background-color: #f0f2f5;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-top: 50px;
+        }
+        .copyright {
+            margin-top: 15px;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            .user-info {
+                margin-top: 15px;
+            }
+            .form-col {
+                flex: 0 0 100%;
+            }
+            .student-name-display {
+                position: static;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://www.zjzs.net/mobanimages/logo.png" alt="浙江省教育考试院">
+                <div class="logo-text">
+                    <h1>2025年浙江省普通高校招生考试成绩查询</h1>
+                    <p>浙江省教育考试院成绩查询系统</p>
+                </div>
+            </div>
+            <div class="user-info">
+                <i class="fas fa-user"></i> 考生：朱耿鑫
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="query-card">
+                <div class="card-title">
+                    <i class="fas fa-search"></i> 成绩查询
+                </div>
+                <form id="scoreQueryForm">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="examNo">准考证号</label>
+                            <input type="text" id="examNo" placeholder="请输入14位准考证号">
+                        </div>
+                        <div class="form-col">
+                            <label for="idCard">身份证号</label>
+                            <input type="text" id="idCard" placeholder="请输入18位身份证号">
+                        </div>
+                        <div class="form-col">
+                            <label for="name">考生姓名</label>
+                            <input type="text" id="name" placeholder="请输入考生姓名">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-block">
+                        <i class="fas fa-paper-plane"></i> 查询成绩
+                    </button>
+                </form>
+            </div>
+
+            <div class="notice">
+                <div class="notice-title"><i class="fas fa-exclamation-circle"></i> 重要提示</div>
+                <p>1. 2025年浙江省高考成绩查询时间为6月26日14:00起</p>
+                <p>2. 请妥善保管您的准考证号和身份证号，避免泄露个人信息</p>
+                <p>3. 如遇查询高峰，系统可能出现延迟，请耐心等待或错峰查询</p>
+                <p>4. 成绩复核申请时间为6月27日-28日，逾期不再受理</p>
+            </div>
+
+            <!-- 查询结果示例 (实际使用时需要通过JS动态显示) -->
+            <div class="result-card" id="resultSection" style="display: none;">
+                <div class="student-name-display">
+                    <i class="fas fa-user"></i> 考生：朱耿鑫
+                </div>
+                <div class="result-title">
+                    <i class="fas fa-award"></i> 2025年浙江省高考成绩单
+                </div>
+                <table class="score-table">
+                    <thead>
+                        <tr>
+                            <th>科目</th>
+                            <th>成绩</th>
+                            <th>等级</th>
+                            <th>全省排名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>语文</td>
+                            <td>117</td>
+                            <td>B</td>
+                            <td>前45%</td>
+                        </tr>
+                        <tr>
+                            <td>数学</td>
+                            <td>121</td>
+                            <td>B+</td>
+                            <td>前32%</td>
+                        </tr>
+                        <tr>
+                            <td>英语</td>
+                            <td>107</td>
+                            <td>C+</td>
+                            <td>前65%</td>
+                        </tr>
+                        <tr>
+                            <td>物理</td>
+                            <td>81</td>
+                            <td>C</td>
+                            <td>前75%</td>
+                        </tr>
+                        <tr>
+                            <td>化学</td>
+                            <td>85</td>
+                            <td>C+</td>
+                            <td>前60%</td>
+                        </tr>
+                        <tr>
+                            <td>生物</td>
+                            <td>80</td>
+                            <td>C</td>
+                            <td>前78%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>总分</strong></td>
+                            <td colspan="3"><strong>590</strong> (全省排名约前58%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="notice">
+                    <div class="notice-title"><i class="fas fa-info-circle"></i> 成绩说明</div>
+                    <p>1. 本次考试成绩为原始分，不含任何加分项</p>
+                    <p>2. 等级划分标准参考2024年浙江省高考：A+（前5%），A（前15%），B+（前30%），B（前50%），C+（前65%），C（前85%），D（其余）</p>
+                    <p>3. 根据2024年数据，总分590分大约对应全省排名前58%左右</p>
+                    <p>4. 2025年一分一段表将在6月27日10:00后公布</p>
+                </div>
+                <button class="btn" style="margin-top: 20px;">
+                    <i class="fas fa-print"></i> 打印成绩单
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>咨询服务电话：0571-88907532（工作日8:30-17:30）</p>
+            <p>技术支持：浙江省教育考试院信息处</p>
+            <p class="copyright">© 2025 浙江省教育考试院 版权所有</p>
+        </div>
+    </div>
+
+    <script>
+        // 模拟查询功能
+        document.getElementById('scoreQueryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // 这里应该是AJAX请求，这里只是模拟
+            document.getElementById('resultSection').style.display = 'block';
+            window.scrollTo({
+                top: document.getElementById('resultSection').offsetTop - 20,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
